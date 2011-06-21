@@ -1,0 +1,64 @@
+<!ENTITY canimage.title "CanImage : Yes, canvas can !">
+<!ENTITY canimage.toolbar.open "Ouvrir">
+<!ENTITY canimage.toolbar.open.ttt "Ouvrir">
+<!ENTITY canimage.toolbar.open.file "Fichier">
+<!ENTITY canimage.toolbar.open.file.ttt "Editer une image depuis un fichier">
+<!ENTITY canimage.toolbar.open.clipboard "Presse-Papier">
+<!ENTITY canimage.toolbar.open.clipboard.ttt "Editer une image depuis le presse papier">
+<!ENTITY canimage.toolbar.open.page "Pages">
+<!ENTITY canimage.toolbar.open.page.ttt "Trouver une image dans les onglet ouverts">
+<!ENTITY canimage.toolbar.capture "Capturer">
+<!ENTITY canimage.toolbar.capture.ttt "Prendre un cliché instantané">
+<!ENTITY canimage.toolbar.capture.window "Fenêtre">
+<!ENTITY canimage.toolbar.capture.window.ttt "Capturer la fenêtre de Firefox">
+<!ENTITY canimage.toolbar.capture.page "Page">
+<!ENTITY canimage.toolbar.capture.page.ttt "Capturer la page visualisée">
+<!ENTITY canimage.toolbar.capture.visible "Contenu visible">
+<!ENTITY canimage.toolbar.capture.visible.ttt "Capturer le contenu visible de la page visualisée">
+<!ENTITY canimage.toolbar.save "Enregistrer">
+<!ENTITY canimage.toolbar.save.ttt "Sauvegarder l'image">
+<!ENTITY canimage.toolbar.insert "Insérer">
+<!ENTITY canimage.toolbar.insert.ttt "Insérer dans une page ouverte">
+<!ENTITY canimage.toolbar.insert.input "Champs fichier">
+<!ENTITY canimage.toolbar.insert.input.ttt "Insérer l'image dans un champs de formulaire">
+<!ENTITY canimage.toolbar.insert.field "Champs texte (DataURI)">
+<!ENTITY canimage.toolbar.insert.field.ttt "Insérer l'image dans un champs texte en tant que DataURI">
+<!ENTITY canimage.toolbar.send "Envoyer">
+<!ENTITY canimage.toolbar.send.ttt "Envoyer vers une destination">
+<!ENTITY canimage.toolbar.send.clipboardasbmp "Presse papier (bitmap)">
+<!ENTITY canimage.toolbar.send.clipboardasbmp.ttt "Envoyer l'image bitmap dans le presse papier">
+<!ENTITY canimage.toolbar.send.clipboardasb64 "Presse papier (DataURI)">
+<!ENTITY canimage.toolbar.send.clipboardasb64.ttt "Envoyer l'image encodée en base64 dans le presse papier">
+<!ENTITY canimage.toolbar.send.bbcomposer "BBComposer">
+<!ENTITY canimage.toolbar.send.bbcomposer.ttt "Ajouter l'image dans BBComposer">
+<!ENTITY canimage.toolbar.send.bbcomposerb64 "BBComposer (DataURI)">
+<!ENTITY canimage.toolbar.send.bbcomposerb64.ttt "Ajouter l'image dans BBComposer en tant que DataURI">
+<!ENTITY canimage.toolbar.reset "Réinitialiser">
+<!ENTITY canimage.toolbar.reset.ttt "Réinitialiser l'image dans son état initial">
+<!ENTITY canimage.toolbar.zoomin "Zoomer">
+<!ENTITY canimage.toolbar.zoomin.ttt "Zoomer sur l'image">
+<!ENTITY canimage.toolbar.zoomout "Dézoomer">
+<!ENTITY canimage.toolbar.zoomout.ttt "Dézoomer sur l'image">
+<!ENTITY canimage.toolbar.rotateleft "Tourner gauche">
+<!ENTITY canimage.toolbar.rotateleft.ttt "Faire tourner l'image à gauche">
+<!ENTITY canimage.toolbar.rotateright "Tourner droite">
+<!ENTITY canimage.toolbar.rotateright.ttt "Faire tourner l'image à droite">
+<!ENTITY canimage.toolbar.horizontalflip "Retournement horizontal">
+<!ENTITY canimage.toolbar.horizontalflip.ttt "Retourner l'image horizontalement">
+<!ENTITY canimage.toolbar.verticalflip "Retournement vertical">
+<!ENTITY canimage.toolbar.verticalflip.ttt "Retourner l'image verticalement">
+<!ENTITY canimage.toolbar.lessbrightness "Moins lumineux">
+<!ENTITY canimage.toolbar.lessbrightness.ttt "Rendre l'image moins lumineuse">
+<!ENTITY canimage.toolbar.morebrightness "Plus lumineux">
+<!ENTITY canimage.toolbar.morebrightness.ttt "Rendre l'image plus lumineuse">
+<!ENTITY canimage.toolbar.lesscontrast "Moins de contraste">
+<!ENTITY canimage.toolbar.lesscontrast.ttt "Rendre l'image moins contrastrée">
+<!ENTITY canimage.toolbar.morecontrast "Plus de contraste">
+<!ENTITY canimage.toolbar.morecontrast.ttt "Rendre l'image plus contrastée">
+<!ENTITY canimage.toolbar.inverse "Inverse">
+<!ENTITY canimage.toolbar.inverse.ttt "Inverse color values">
+<!ENTITY canimage.toolbar.crop "Découper">
+<!ENTITY canimage.toolbar.crop.ttt "Découper une zone de l'image">
+<!ENTITY canimage.width "Largeur">
+<!ENTITY canimage.height "Hauteur">
+<!ENTITY canimage.size "Taille">

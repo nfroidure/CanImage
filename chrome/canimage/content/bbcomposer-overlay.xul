@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://canimage/locale/canimage-overlay.dtd">
+
+<overlay id="bbcomposer-canimage"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script insertafter="lastJsFile" type="application/x-javascript" src="chrome://canimage/content/bbcomposer-overlay.js"/>
+	<menupopup id="bbcomposer-sidebar-button-mpopup">
+		<menuitem observes="bbcomp-canimage-sidebar" id="bbcomposer-canimage-sidebar-button" label="&canimage.name;" tooltiptext="&canimage.ttt;" oncommand="myBBComposerManager.toggleSidebar('canimage')"/>
+	</menupopup>
+	<menupopup id="bbcomp-sidebar-menu-mpopup">
+		<menuitem observes="bbcomp-canimage-sidebar" id="bbcomp-canimage-sidebar-menuitem"/>
+	</menupopup>
+</overlay>

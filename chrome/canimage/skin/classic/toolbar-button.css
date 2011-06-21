@@ -1,0 +1,19 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#sidebar-box {
+    overflow-x: hidden !important;
+}
+
+#sidebar {
+    min-width: 0px !important;
+    max-width: none !important;
+    overflow-x: hidden !important;
+}
+
+#canimage-toolbarbutton, #canimage-addonbarbutton {
+	list-style-image: url("chrome://canimage/skin/canimage.png");
+}
+
+toolbar[iconsize="small"] #canimage-toolbarbutton, toolbar[iconsize="small"] #canimage-addonbarbutton {
+	list-style-image: url("chrome://canimage/skin/canimage_small.png");
+}

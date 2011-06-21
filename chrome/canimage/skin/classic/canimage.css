@@ -1,0 +1,54 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+window { min-width:300px; }
+
+/* Toolbar buttons */
+#canImageZoomIn {
+	list-style-image: url("chrome://canimage/skin/zoom_in.png");
+}
+#canImageZoomOut {
+	list-style-image: url("chrome://canimage/skin/zoom_out.png");
+}
+#canImageRotateLeft {
+	list-style-image: url("chrome://canimage/skin/shape_rotate_anticlockwise.png");
+}
+#canImageRotateRight {
+	list-style-image: url("chrome://canimage/skin/shape_rotate_clockwise.png");
+}
+#canImageHorizontalFlip {
+	list-style-image: url("chrome://canimage/skin/shape_flip_horizontal.png");
+}
+#canImageVerticalFlip {
+	list-style-image: url("chrome://canimage/skin/shape_flip_vertical.png");
+}
+#canImageLessBrightness {
+	list-style-image: url("chrome://canimage/skin/lightbulb_delete.png");
+}
+#canImageMoreBrightness {
+	list-style-image: url("chrome://canimage/skin/lightbulb_add.png");
+}
+#canImageLessContrast {
+	list-style-image: url("chrome://canimage/skin/contrast_decrease.png");
+}
+#canImageMoreContrast {
+	list-style-image: url("chrome://canimage/skin/contrast_increase.png");
+}
+#canImageInverseColors {
+	list-style-image: url("chrome://canimage/skin/picture_inverse.png");
+}
+#canImageInverseColors[checked="true"] {
+	list-style-image: url("chrome://canimage/skin/picture.png");
+}
+#canImageCropZone {
+	list-style-image: url("chrome://canimage/skin/cut.png");
+}
+/* Crop selectors */
+#canImageWrapper { overflow:hidden; }
+#canImageContainer { overflow:auto; }
+#canImageStack.canImageFSelection, #canImageStack.canImageSSelection { cursor:crosshair; }
+#canImageFHSelector, #canImageFVSelector { display:none; background:red; }
+#canImageStack.canImageSSelection #canImageFHSelector, #canImageStack.canImageSSelection #canImageFVSelector { display:none; background:green; }
+#canImageSHSelector, #canImageSVSelector { display:none; background:red; }
+#canImageStack.canImageFSelection #canImageFHSelector, #canImageStack.canImageFSelection #canImageFVSelector { display:block; }
+#canImageStack.canImageSSelection #canImageFHSelector, #canImageStack.canImageSSelection #canImageFVSelector, #canImageStack.canImageSSelection #canImageSHSelector, #canImageStack.canImageSSelection #canImageSVSelector { display:block; }

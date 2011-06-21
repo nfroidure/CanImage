@@ -1,0 +1,8 @@
+<!ENTITY canimage.name "CanImage">
+<!ENTITY canimage.ttt "Edit an image">
+<!ENTITY canimage.context "Edit the image">
+<!ENTITY canimage.context.ttt "Edit this image with CanImage">
+<!ENTITY canimage.context.bg "Edit background image">
+<!ENTITY canimage.context.bg.ttt "Edit the background image with CanImage">
+<!ENTITY canimage.context.link "Edit linked image">
+<!ENTITY canimage.context.link.ttt "Edit the linked image with CanImage">

@@ -1,0 +1,64 @@
+<!ENTITY canimage.title "CanImage : Yes, canvas can !">
+<!ENTITY canimage.toolbar.open "Open">
+<!ENTITY canimage.toolbar.open.ttt "Open">
+<!ENTITY canimage.toolbar.open.file "File">
+<!ENTITY canimage.toolbar.open.file.ttt "Edit an image from a file">
+<!ENTITY canimage.toolbar.open.clipboard "Clipboard">
+<!ENTITY canimage.toolbar.open.clipboard.ttt "Edit an image from the clipboard">
+<!ENTITY canimage.toolbar.open.page "Pages">
+<!ENTITY canimage.toolbar.open.page.ttt "Find images into opened tabs">
+<!ENTITY canimage.toolbar.capture "Capturer">
+<!ENTITY canimage.toolbar.capture.ttt "Prendre un cliché instantané">
+<!ENTITY canimage.toolbar.capture.window "Fenêtre">
+<!ENTITY canimage.toolbar.capture.window.ttt "Capturer la fenêtre de Firefox">
+<!ENTITY canimage.toolbar.capture.page "Page">
+<!ENTITY canimage.toolbar.capture.page.ttt "Capturer la page visualisée">
+<!ENTITY canimage.toolbar.capture.visible "Contenu visible">
+<!ENTITY canimage.toolbar.capture.visible.ttt "Capturer le contenu visible de la page visualisée">
+<!ENTITY canimage.toolbar.save "Save">
+<!ENTITY canimage.toolbar.save.ttt "Save the image">
+<!ENTITY canimage.toolbar.insert "Insert">
+<!ENTITY canimage.toolbar.insert.ttt "Insert into opened tab">
+<!ENTITY canimage.toolbar.insert.input "File inputs">
+<!ENTITY canimage.toolbar.insert.input.ttt "Insert image into a file input">
+<!ENTITY canimage.toolbar.insert.field "Text inputs (DataURI)">
+<!ENTITY canimage.toolbar.insert.field.ttt "Insert image as DataURI into a text input">
+<!ENTITY canimage.toolbar.send "Send">
+<!ENTITY canimage.toolbar.send.ttt "Send image to">
+<!ENTITY canimage.toolbar.send.clipboardasbmp "Clipboard (bitmap)">
+<!ENTITY canimage.toolbar.send.clipboardasbmp.ttt "Send the image bitmap to the clipboard">
+<!ENTITY canimage.toolbar.send.clipboardasb64 "Clipboared (DataURI)">
+<!ENTITY canimage.toolbar.send.clipboardasb64.ttt "Send image to the clipboard as DataURI">
+<!ENTITY canimage.toolbar.send.bbcomposer "BBComposer">
+<!ENTITY canimage.toolbar.send.bbcomposer.ttt "Send image into BBComposer">
+<!ENTITY canimage.toolbar.send.bbcomposerb64 "BBComposer (DataURI)">
+<!ENTITY canimage.toolbar.send.bbcomposerb64.ttt "Send image into BBComposer as Data URI">
+<!ENTITY canimage.toolbar.reset "Reset">
+<!ENTITY canimage.toolbar.reset.ttt "Get the initial image">
+<!ENTITY canimage.toolbar.zoomin "Zoom in">
+<!ENTITY canimage.toolbar.zoomin.ttt "Zoom image in">
+<!ENTITY canimage.toolbar.zoomout "Zoom out">
+<!ENTITY canimage.toolbar.zoomout.ttt "Zoom image out">
+<!ENTITY canimage.toolbar.rotateleft "Rotate left">
+<!ENTITY canimage.toolbar.rotateleft.ttt "Rotate image left">
+<!ENTITY canimage.toolbar.rotateright "Rotate right">
+<!ENTITY canimage.toolbar.rotateright.ttt "Rotate image right">
+<!ENTITY canimage.toolbar.horizontalflip "Horizontal flip">
+<!ENTITY canimage.toolbar.horizontalflip.ttt "Flip image horizontally">
+<!ENTITY canimage.toolbar.verticalflip "Vertical flip">
+<!ENTITY canimage.toolbar.verticalflip.ttt "Flip image vertically">
+<!ENTITY canimage.toolbar.lessbrightness "Less brightness">
+<!ENTITY canimage.toolbar.lessbrightness.ttt "Give the image less bright">
+<!ENTITY canimage.toolbar.morebrightness "More brightness">
+<!ENTITY canimage.toolbar.morebrightness.ttt "Give the image more bright">
+<!ENTITY canimage.toolbar.lesscontrast "Less contrast">
+<!ENTITY canimage.toolbar.lesscontrast.ttt "Give the image less contrast">
+<!ENTITY canimage.toolbar.morecontrast "More contrast">
+<!ENTITY canimage.toolbar.morecontrast.ttt "Give the image more contrast">
+<!ENTITY canimage.toolbar.inverse "Inverse">
+<!ENTITY canimage.toolbar.inverse.ttt "Inverse color values">
+<!ENTITY canimage.toolbar.crop "Crop">
+<!ENTITY canimage.toolbar.crop.ttt "Choose a subzone for this image">
+<!ENTITY canimage.width "Width">
+<!ENTITY canimage.height "Height">
+<!ENTITY canimage.size "Size">

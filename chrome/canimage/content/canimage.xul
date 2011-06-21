@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://canimage/skin/canimage.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://canimage/locale/canimage-content.dtd">
+
+<window title="&canimage.title;"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<script type="application/x-javascript" src="chrome://canimage/content/file.js"/>
+	<script type="application/x-javascript" src="chrome://canimage/content/canimage.js"/>
+
+	<stringbundleset id="stringbundleset">
+		<stringbundle id="canimage-properties" src="chrome://canimage/locale/canimage.properties"/>
+	</stringbundleset>
+
+	<vbox flex="1">
+		<toolbar>
+			<toolbarbutton label="&canimage.toolbar.open;" tooltiptext="&canimage.toolbar.open.ttt;" type="menu">
+				<menupopup>
+					<menuitem id="canImageOpenFile" label="&canimage.toolbar.open.file;" tooltiptext="&canimage.toolbar.open.file.ttt;"/>
+					<menu label="&canimage.toolbar.capture;" tooltiptext="&canimage.toolbar.capture.ttt;" id="bbcomposer-pasteas-context">
+						<menupopup>
+							<menuitem id="canImageOpenWindow" label="&canimage.toolbar.capture.window;" tooltiptext="&canimage.toolbar.capture.window.ttt;"/>
+							<menuitem id="canImageOpenPage" label="&canimage.toolbar.capture.page;" tooltiptext="&canimage.toolbar.capture.page.ttt;"/>
+							<menuitem id="canImageOpenVisible" label="&canimage.toolbar.capture.visible;" tooltiptext="&canimage.toolbar.capture.visible.ttt;"/>
+						</menupopup>
+					</menu>
+					<menuitem id="canImageOpenClipboard" label="&canimage.toolbar.open.clipboard;" tooltiptext="&canimage.toolbar.open.clipboard.ttt;"/>
+					<menu label="&canimage.toolbar.open.page;" tooltiptext="&canimage.toolbar.open.page.ttt;" id="bbcomposer-pasteas-context">
+						<menupopup id="canImagePagePopup">
+						</menupopup>
+					</menu>
+				</menupopup>
+			</toolbarbutton>
+			<toolbarbutton id="canImageSave" label="&canimage.toolbar.save;" tooltiptext="&canimage.toolbar.save.ttt;"></toolbarbutton>
+			<toolbarbutton label="&canimage.toolbar.insert;" tooltiptext="&canimage.toolbar.insert.ttt;" type="menu">
+				<menupopup>
+					<menu label="&canimage.toolbar.insert.input;" tooltiptext="&canimage.toolbar.insert.input.ttt;">
+						<menupopup id="canImageInputPopup">
+						</menupopup>
+					</menu>
+					<menu label="&canimage.toolbar.insert.field;" tooltiptext="&canimage.toolbar.insert.field.ttt;">
+						<menupopup id="canImageFieldPopup">
+						</menupopup>
+					</menu>
+				</menupopup>
+			</toolbarbutton>
+			<toolbarbutton label="&canimage.toolbar.send;" tooltiptext="&canimage.toolbar.send.ttt;" type="menu">
+				<menupopup>
+					<menuitem label="&canimage.toolbar.send.clipboardasbmp;" tooltiptext="&canimage.toolbar.send.clipboardasbmp.ttt;" id="canImageClipboardBmp"/>
+					<menuitem label="&canimage.toolbar.send.clipboardasb64;" tooltiptext="&canimage.toolbar.send.clipboardasb64.ttt;" id="canImageClipboardB64"/>
+					<menuitem label="&canimage.toolbar.send.bbcomposer;" tooltiptext="&canimage.toolbar.send.bbcomposer.ttt;" id="canImageBBComposer"/>
+					<menuitem label="&canimage.toolbar.send.bbcomposerb64;" tooltiptext="&canimage.toolbar.send.bbcomposerb64.ttt;" id="canImageBBComposerB64"/>
+				</menupopup>
+			</toolbarbutton>
+			<toolbarbutton id="canImageReset" label="&canimage.toolbar.reset;" tooltiptext="&canimage.toolbar.reset.ttt;"></toolbarbutton>
+		</toolbar>
+		<toolbar mode="icons">
+			<toolbarbutton id="canImageZoomOut" label="&canimage.toolbar.zoomout;" tooltiptext="&canimage.toolbar.zoomout.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageZoomIn" label="&canimage.toolbar.zoomin;" tooltiptext="&canimage.toolbar.zoomin.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageRotateLeft" label="&canimage.toolbar.rotateleft;" tooltiptext="&canimage.toolbar.rotateleft.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageRotateRight" label="&canimage.toolbar.rotateright;" tooltiptext="&canimage.toolbar.rotateright.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageHorizontalFlip" label="&canimage.toolbar.horizontalflip;" tooltiptext="&canimage.toolbar.horizontalflip.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageVerticalFlip" label="&canimage.toolbar.verticalflip;" tooltiptext="&canimage.toolbar.verticalflip.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageLessBrightness" label="&canimage.toolbar.lessbrightness;" tooltiptext="&canimage.toolbar.lessbrightness.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageMoreBrightness" label="&canimage.toolbar.morebrightness;" tooltiptext="&canimage.toolbar.morebrightness.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageLessContrast" label="&canimage.toolbar.lesscontrast;" tooltiptext="&canimage.toolbar.lesscontrast.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageMoreContrast" label="&canimage.toolbar.morecontrast;" tooltiptext="&canimage.toolbar.morecontrast.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageInverseColors" type="checkbox" autocheck="false" checked="false" label="&canimage.toolbar.inverse;" tooltiptext="&canimage.toolbar.inverse.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageCropZone" label="&canimage.toolbar.crop;" tooltiptext="&canimage.toolbar.crop.ttt;"></toolbarbutton>
+		</toolbar>
+		<vbox flex="1" id="canImageWrapper">
+			<vbox flex="1" id="canImageContainer">
+				<stack id="canImageStack">
+					<vbox>
+						<html:div>
+							<html:canvas id="canImageCanvas">
+							</html:canvas>
+						</html:div>
+					</vbox>
+					<box id="canImageFVSelector" width="1px" height="1px"></box>
+					<box id="canImageFHSelector" width="1px" height="1px"></box>
+					<box id="canImageSVSelector" width="1px" height="1px"></box>
+					<box id="canImageSHSelector" width="1px" height="1px"></box>
+				</stack>
+			</vbox>
+		</vbox>
+		<hbox><label value="&canimage.width;" flex="1"/><label value="" id="canImageWidth"/><label value="px"/></hbox>
+		<hbox><label value="&canimage.height;" flex="1"/><label value="" id="canImageHeight"/><label value="px"/></hbox>
+		<hbox><label value="&canimage.size;" flex="1"/><label value="" id="canImageSize"/><label value="Kb"/></hbox>
+	</vbox>
+</window>

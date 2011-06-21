@@ -1,0 +1,7 @@
+content  canimage   chrome/canimage/content/
+locale   canimage   en-US   chrome/canimage/locale/en-US/
+locale   canimage   fr-FR   chrome/canimage/locale/fr-FR/
+skin  canimage   classic   chrome/canimage/skin/classic/
+overlay chrome://browser/content/browser.xul  chrome://canimage/content/browser-overlay.xul
+overlay chrome://bbcomposer/content/bbcomposer.xul  chrome://canimage/content/bbcomposer-overlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://canimage/skin/toolbar-button.css

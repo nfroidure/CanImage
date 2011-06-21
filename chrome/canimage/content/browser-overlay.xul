@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://canimage/skin/toolbar-button.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://canimage/locale/canimage-overlay.dtd">
+
+<overlay id="canimage"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://canimage/content/browser-overlay.js"/>
+
+	<broadcasterset id="mainBroadcasterSet">
+		<broadcaster autoCheck="false" type="checkbox" group="sidebar" id="bbcomp-canimage-sidebar" label="&canimage.name;" tooltiptext="&canimage.ttt;" sidebarurl="chrome://canimage/content/canimage.xul" oncommand="toggleSidebar('bbcomp-canimage-sidebar');" />
+	</broadcasterset>
+
+	<menupopup id="viewSidebarMenu">
+		<menuitem observes="bbcomp-canimage-sidebar" id="bbcomp-canimage-menuitem"/>
+	</menupopup>
+
+	<popup id="contentAreaContextMenu"
+		onpopupshowing="if (event.target != this) return true; updateEditUIVisibility(); gContextMenu = new nsContextMenu(this, window.getBrowser()); canImageContextDisplay(); return gContextMenu.shouldDisplay;">
+		<menuitem label="&canimage.context;" tooltiptext="&canimage.context.ttt;" id="canimage-context" oncommand="canImageContextEdit('img')" insertafter="context-copyimage"/>
+		<menuitem label="&canimage.context.link;" tooltiptext="&canimage.context.link.ttt;" id="canimage-link-context" oncommand="canImageContextEdit('link')" insertafter="context-openlinkintab"/>
+		<menuitem label="&canimage.context.bg;" tooltiptext="&canimage.context.bg.ttt;" id="canimage-bg-context" oncommand="canImageContextEdit('bg')" insertafter="context-viewbgimage"/>
+	</popup>
+
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton id="canimage-toolbarbutton" class="toolbarbutton-1" label="&canimage.name;" tooltiptext="&canimage.ttt;" observes="bbcomp-canimage-sidebar"/>
+	</toolbarpalette>
+
+	<toolbar id="addon-bar">
+		<toolbarbutton id="canimage-addonbarbutton" class="toolbarbutton-1" label="&canimage.name;" tooltiptext="&canimage.ttt;" observes="bbcomp-canimage-sidebar"/>
+	</toolbar>
+</overlay>
