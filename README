@@ -1,3 +1,32 @@
-CanImage : Image editor for Firefox
+# Welcome on CanImage sources : Image editor for Firefox
 
+## About CanImage
 CanImage is a Firefox add-on enabling you to modify images from many sources inside Firefox. Once you did, you can push her everywhere you want (input[type=file], input[type=text]|textarea as dataUri, clipboard as Bitmap or DataUri, any hardrive).
+
+## About CanImage technologies
+CanImage is a Firefox addon. It use XUL and Javascript. You can get more information on the Mozilla Developer Center (https://developper.mozilla.org).
+
+## Quick start
+
+Create a new Firefox profile for add on development (https://developer.mozilla.org/en/Setting_up_extension_development_environment).
+
+Clone the project into the extension folder of this new profile.
+
+-Unix/Linux :
+$ git clone git://github.com/nfroidure/CanImage.git ~/.mozilla/firefox/(FirefoxProfile)/extensions/canimage@elitwork.com
+
+-Windows sample :
+$ git clone git://github.com/nfroidure/CanImage.git C:\Documents and Settings\(WindowsProfiles)\Application Data\Mozilla\Firefox\Profiles\(FirefoxProfile)\extensions\canimage@elitwork.com
+
+The extension will be installed on the next Firefox start (with dev. profile). Restart firefox on each changes to test them.
+
+## About locales
+
+DO NOT add or modify locales files! Those are managed in Babelzilla only! http://www.babelzilla.org
+
+Have fun!
+
+PS : Take a look at my other add-ons:
+- BBComposer : https://github.com/nfroidure/BBComposer
+- KGen : https://github.com/nfroidure/KGen
+
