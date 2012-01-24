@@ -3,6 +3,10 @@
 ## About CanImage
 CanImage is a Firefox add-on enabling you to modify images from many sources inside Firefox. Once you did, you can push her everywhere you want (input[type=file], input[type=text]|textarea as dataUri, clipboard as Bitmap or DataUri, any hardrive).
 
+To get CanImage for production go there https://addons.mozilla.org/fr/firefox/addon/canimage/ . To get CanImage development version, follow the above quick start guide.
+
+More informations on the official web site : http://canimage.elitwork.com
+
 ## About CanImage technologies
 CanImage is a Firefox addon. It use XUL and Javascript. You can get more information on the Mozilla Developer Center (https://developper.mozilla.org).
 
@@ -30,3 +34,4 @@ PS : Take a look at my other add-ons:
 - BBComposer : https://github.com/nfroidure/BBComposer
 - KGen : https://github.com/nfroidure/KGen
 
+PS2 : Have news on Twitter http://twiter.com/nfroidure

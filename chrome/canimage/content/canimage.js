@@ -12,9 +12,8 @@ CanImageUI.prototype.init = function ()
 	{
 	if(window.parent.myBBComposerManager&&window.parent.myBBComposerManager.focusedBBComposer)
 		{
-		if(!window.parent.myBBComposerManager.sidebar)
-			window.parent.myBBComposerManager.toggleSidebar('canimage', 'show');
-		window.parent.myBBComposerManager.canimageDisplay();
+		if(window.parent.myBBComposerManager.toggleSidebar('canimage', true))
+			window.parent.myBBComposerManager.canimageDisplay();
 		}
 	this.canvas=document.getElementById('canImageCanvas');
 	// Getting locales
