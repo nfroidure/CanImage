@@ -188,7 +188,7 @@ CanImageUI.prototype.editorEventHandler = function (hEvent)
 // Buttons functions
 CanImageUI.prototype.openFromFile = function ()
 	{
-	var file = new bbFile();
+	var file = new ewkFile();
 	if(file.fromUserSelection())
 		{
 		var image = new Image();
@@ -296,7 +296,7 @@ CanImageUI.prototype.openFromClipboard = function ()
 		if(flavor.value=='image/png')
 			{
 			if (str) str = str.value.QueryInterface(Components.interfaces.nsIInputStream);;
-			file = new bbFile(null);
+			file = new ewkFile(null);
 			if(file.fromTempDirectory(this.tempNum+'canimage.jpg')||file.createUnique())
 				{
 				this.streamUri=file.getUri();
@@ -307,7 +307,7 @@ CanImageUI.prototype.openFromClipboard = function ()
 		else if(flavor.value=='image/gif')
 			{
 			if (str) str = str.value.QueryInterface(Components.interfaces.nsIInputStream);;
-			vfile = new bbFile(null);
+			vfile = new ewkFile(null);
 			if(file.fromTempDirectory(this.tempNum+'canimage.jpg')||file.createUnique())
 				{
 				this.streamUri=file.getUri();
@@ -318,7 +318,7 @@ CanImageUI.prototype.openFromClipboard = function ()
 		else if(flavor.value=='image/jpg'||flavor.value=='image/jpeg')
 			{
 			if (str) str = str.value.QueryInterface(Components.interfaces.nsIInputStream);;
-			file = new bbFile(null);
+			file = new ewkFile(null);
 			if(file.fromTempDirectory(this.tempNum+'canimage.jpg')||file.createUnique())
 				{
 				this.streamUri=file.getUri();
@@ -351,7 +351,7 @@ CanImageUI.prototype.saveFile = function ()
 	{
 	if(this.editor)
 		{
-		var file = new bbFile();
+		var file = new ewkFile();
 		if(file.fromUserCreation())
 			file.writeFromDataURL(this.canvas.toDataURL("image/png"));
 		}
@@ -364,7 +364,7 @@ CanImageUI.prototype.sendToInput = function (hEvent)
 	{
 	if(this.editor)
 		{
-		var file = new bbFile();
+		var file = new ewkFile();
 		if(file.fromTempDirectory(this.tempNum+'canimage.png'));
 			file.writeFromDataURL(this.canvas.toDataURL("image/png"));
 		hEvent.target.linkedInput.value=file.getUri();
