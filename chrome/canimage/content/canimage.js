@@ -227,28 +227,28 @@ CanImageUI.prototype.openFromDataUri = function (data)
 CanImageUI.prototype.openFromWindow = function (data)
 	{
 	this.openFromCapture(window.parent,{
-		top: 0,
-		left: 0,
-		width: window.parent.document.documentElement.scrollWidth,
-		height: window.parent.document.documentElement.scrollHeight,
+		'top': 0,
+		'left': 0,
+		'width': window.parent.document.documentElement.scrollWidth,
+		'height': window.parent.document.documentElement.scrollHeight,
 		});
 	}
 CanImageUI.prototype.openFromPage = function ()
 	{
 	this.openFromCapture(window.parent.getBrowser().contentWindow,{
-		top: 0,
-		left: 0,
-		width: window.parent.getBrowser().contentDocument.documentElement.scrollWidth,
-		height: window.parent.getBrowser().contentDocument.documentElement.scrollHeight,
+		'top': 0,
+		'left': 0,
+		'width': window.parent.getBrowser().contentDocument.documentElement.scrollWidth,
+		'height': window.parent.getBrowser().contentDocument.documentElement.scrollHeight,
 		});
 	}
 CanImageUI.prototype.openFromVisible = function ()
 	{
 	this.openFromCapture(window.parent.getBrowser().contentWindow,{
-		top: window.parent.getBrowser().contentWindow.scrollY,
-		left: window.parent.getBrowser().contentWindow.scrollX,
-		width: window.parent.getBrowser().contentDocument.width,
-		height: window.parent.getBrowser().contentDocument.height,
+		'top': window.parent.getBrowser().contentWindow.scrollY,
+		'left': window.parent.getBrowser().contentWindow.scrollX,
+		'width': window.parent.getBrowser().contentWindow.outerWidth,
+		'height': window.parent.getBrowser().contentWindow.outerHeight,
 		});
 	}
 CanImageUI.prototype.openFromCapture = function (win,sel)
@@ -259,8 +259,8 @@ CanImageUI.prototype.openFromCapture = function (win,sel)
 	canvas.width = sel.width;
 	context.drawWindow(
 		win,
-		sel.left,
-		sel.top,
+		(sel.left?sel.left:0),
+		(sel.top?sel.top:0),
 		sel.width,
 		sel.height,
 		'rgb(255, 255, 255)'
