@@ -25,6 +25,7 @@ CanImageUI.prototype.init = function ()
 	document.getElementById('canImageOpenVisible').addEventListener('command', this.newEventHandler(this,this.openFromVisible), false);
 	document.getElementById('canImageOpenClipboard').addEventListener('command', this.newEventHandler(this,this.openFromClipboard), false);
 	document.getElementById('canImageSave').addEventListener('command', this.newEventHandler(this,this.saveFile), false);
+	document.getElementById('canImageSaveAs').addEventListener('command', this.newEventHandler(this,this.saveAsFile), false);
 	document.getElementById('canImageClipboardBmp').addEventListener('command', this.newEventHandler(this,this.sendToClipboardBmp), false);
 	document.getElementById('canImageClipboardB64').addEventListener('command', this.newEventHandler(this,this.sendToClipboardB64), false);
 	document.getElementById('canImageBBComposer').addEventListener('command', this.newEventHandler(this,this.sendToBBComposer), false);
@@ -189,15 +190,17 @@ CanImageUI.prototype.editorEventHandler = function (hEvent)
 CanImageUI.prototype.openFromFile = function ()
 	{
 	var file = new ewkFile();
-	if(file.fromUserSelection())
+	if(file.fromUserSelection(this.localeProperties.getString('extensions.canimage@elitwork.com.open'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):''),'*.png; *.jpg; *.jpeg; *.gif; *.bmp',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
 		{
 		var image = new Image();
 		image.src=file.getUri();
 		image.addEventListener('load', this.newEventHandler(this,this.imageHandler), false);
+		this.currentFileUri=file.getUri();
 		}
 	}
 CanImageUI.prototype.openFromContextMenu = function ()
 	{
+	this.currentFileUri='';
 	var type=window.parent.canImageSelType;
 	var selection=window.parent.canImageCurSel;
 	if(type=='link'||type=='bg')
@@ -220,6 +223,7 @@ CanImageUI.prototype.openFromContextMenu = function ()
 CanImageUI.prototype.streamUri = '';
 CanImageUI.prototype.openFromDataUri = function (data)
 	{
+	this.currentFileUri='';
 	var image = new Image();
 	image.addEventListener('load', this.newEventHandler(this,this.imageHandler), false);
 	image.src=data;
@@ -253,6 +257,7 @@ CanImageUI.prototype.openFromVisible = function ()
 	}
 CanImageUI.prototype.openFromCapture = function (win,sel)
 	{
+	this.currentFileUri='';
 	var canvas = document.createElementNS('http://www.w3.org/1999/xhtml', 'html:canvas');
 	var context = canvas.getContext('2d');
 	canvas.height = sel.height;
@@ -349,15 +354,29 @@ CanImageUI.prototype.imageHandler = function (hEvent)
 	}
 CanImageUI.prototype.saveFile = function ()
 	{
+	if(this.editor&&this.currentFileUri)
+		{
+		var file = new ewkFile();
+		if(file.fromUri(this.currentFileUri))
+			file.writeFromDataURL(this.canvas.toDataURL("image/png"));
+		}
+	else
+		this.saveAsFile();
+	}
+CanImageUI.prototype.saveAsFile = function ()
+	{
 	if(this.editor)
 		{
 		var file = new ewkFile();
-		if(file.fromUserCreation())
+		if(file.fromUserCreation(this.localeProperties.getString('extensions.canimage@elitwork.com.save'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):''),'*.png',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
 			file.writeFromDataURL(this.canvas.toDataURL("image/png"));
 		}
+	else
+		alert(this.localeProperties.getString('extensions.canimage@elitwork.com.no_image'));
 	}
 CanImageUI.prototype.openFromImage = function (hEvent)
 	{
+	this.currentFileUri='';
 	this.openImageEditor(hEvent.target.linkedImage);
 	}
 CanImageUI.prototype.sendToInput = function (hEvent)
