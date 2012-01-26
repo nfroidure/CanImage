@@ -8,7 +8,8 @@
                    em:name="CanImage"
                    em:creator="Nicolas FROIDURE"
                    em:homepageURL="http://canimage.elitwork.com"
-                   em:iconURL="chrome://canimage/content/logo.png">
+                   em:iconURL="chrome://canimage/content/logo.png"
+                   em:type="2">
     <em:targetApplication RDF:resource="rdf:#$arpP13"/>
   </RDF:Description>
   <RDF:Description RDF:about="rdf:#$arpP13"
