@@ -17,9 +17,15 @@
 
 	<vbox flex="1">
 		<toolbar>
-			<toolbarbutton label="&canimage.toolbar.open;" tooltiptext="&canimage.toolbar.open.ttt;" type="menu">
+			<toolbarbutton label="&canimage.toolbar.file;" tooltiptext="&canimage.toolbar.file.ttt;" type="menu">
 				<menupopup>
 					<menuitem id="canImageOpenFile" label="&canimage.toolbar.open.file;" tooltiptext="&canimage.toolbar.open.file.ttt;"/>
+					<menuitem id="canImageSave" label="&canimage.toolbar.save;" tooltiptext="&canimage.toolbar.save.ttt;"/>
+					<menuitem id="canImageSaveAs" label="&canimage.toolbar.saveas;" tooltiptext="&canimage.toolbar.saveas.ttt;"/>
+				</menupopup>
+			</toolbarbutton>
+			<toolbarbutton label="&canimage.toolbar.gocapture;" tooltiptext="&canimage.toolbar.gocapture.ttt;" type="menu">
+				<menupopup>
 					<menu label="&canimage.toolbar.capture;" tooltiptext="&canimage.toolbar.capture.ttt;" id="bbcomposer-pasteas-context">
 						<menupopup>
 							<menuitem id="canImageOpenWindow" label="&canimage.toolbar.capture.window;" tooltiptext="&canimage.toolbar.capture.window.ttt;"/>
@@ -34,7 +40,6 @@
 					</menu>
 				</menupopup>
 			</toolbarbutton>
-			<toolbarbutton id="canImageSave" label="&canimage.toolbar.save;" tooltiptext="&canimage.toolbar.save.ttt;"></toolbarbutton>
 			<toolbarbutton label="&canimage.toolbar.insert;" tooltiptext="&canimage.toolbar.insert.ttt;" type="menu">
 				<menupopup>
 					<menu label="&canimage.toolbar.insert.input;" tooltiptext="&canimage.toolbar.insert.input.ttt;">

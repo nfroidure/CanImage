@@ -1,10 +1,10 @@
-<!ENTITY canimage.title "CanImage : Yes, canvas can !">
+<!ENTITY canimage.title "CanImage : Yes, Canvas can !">
 <!ENTITY canimage.toolbar.file "Files">
 <!ENTITY canimage.toolbar.file.ttt "Manage files">
-<!ENTITY canimage.toolbar.open.file "Open">
-<!ENTITY canimage.toolbar.open.file.ttt "Edit an image from a file">
-<!ENTITY canimage.toolbar.save "Save">
-<!ENTITY canimage.toolbar.save.ttt "Save the image">
+<!ENTITY canimage.toolbar.open.file "Datei">
+<!ENTITY canimage.toolbar.open.file.ttt "Datei öffnen">
+<!ENTITY canimage.toolbar.save "Speichern">
+<!ENTITY canimage.toolbar.save.ttt "Bild speichern unter">
 <!ENTITY canimage.toolbar.saveas "Save as">
 <!ENTITY canimage.toolbar.saveas.ttt "Save the image as">
 <!ENTITY canimage.toolbar.gocapture "Capture">
@@ -19,34 +19,34 @@
 <!ENTITY canimage.toolbar.capture.visible.ttt "Capture the visible content of the current page">
 <!ENTITY canimage.toolbar.open.clipboard "Clipboard">
 <!ENTITY canimage.toolbar.open.clipboard.ttt "Edit an image from the clipboard">
-<!ENTITY canimage.toolbar.open.page "Pages">
-<!ENTITY canimage.toolbar.open.page.ttt "Find images into opened tabs">
-<!ENTITY canimage.toolbar.insert "Insert">
-<!ENTITY canimage.toolbar.insert.ttt "Insert into opened tab">
-<!ENTITY canimage.toolbar.insert.input "File inputs">
-<!ENTITY canimage.toolbar.insert.input.ttt "Insert image into a file input">
+<!ENTITY canimage.toolbar.open.page "Seiten">
+<!ENTITY canimage.toolbar.open.page.ttt "Bilder in geöffneten Tabs finden">
+<!ENTITY canimage.toolbar.insert "Einfügen">
+<!ENTITY canimage.toolbar.insert.ttt "In geöffneten Tab einfügen">
+<!ENTITY canimage.toolbar.insert.input "Datei-Upload">
+<!ENTITY canimage.toolbar.insert.input.ttt "Bild in ein Datei-Upload-Feld einfügen">
 <!ENTITY canimage.toolbar.insert.field "Text inputs (DataURI)">
 <!ENTITY canimage.toolbar.insert.field.ttt "Insert image as DataURI into a text input">
-<!ENTITY canimage.toolbar.send "Send">
-<!ENTITY canimage.toolbar.send.ttt "Send image to">
-<!ENTITY canimage.toolbar.send.clipboardasbmp "Clipboard (bitmap)">
-<!ENTITY canimage.toolbar.send.clipboardasbmp.ttt "Send the image bitmap to the clipboard">
-<!ENTITY canimage.toolbar.send.clipboardasb64 "Clipboared (DataURI)">
-<!ENTITY canimage.toolbar.send.clipboardasb64.ttt "Send image to the clipboard as DataURI">
+<!ENTITY canimage.toolbar.send "Senden">
+<!ENTITY canimage.toolbar.send.ttt "Senden an">
+<!ENTITY canimage.toolbar.send.clipboardasbmp "Zwischenablage (Bitmap)">
+<!ENTITY canimage.toolbar.send.clipboardasbmp.ttt "Als Bitmap in Zwischenablage kopieren">
+<!ENTITY canimage.toolbar.send.clipboardasb64 "Zwischenablage (DataURI)">
+<!ENTITY canimage.toolbar.send.clipboardasb64.ttt "Als DataURI in Zwischenablage kopieren">
 <!ENTITY canimage.toolbar.send.bbcomposer "BBComposer">
-<!ENTITY canimage.toolbar.send.bbcomposer.ttt "Send image into BBComposer">
+<!ENTITY canimage.toolbar.send.bbcomposer.ttt "Bild an BBComposer senden">
 <!ENTITY canimage.toolbar.send.bbcomposerb64 "BBComposer (DataURI)">
 <!ENTITY canimage.toolbar.send.bbcomposerb64.ttt "Send image into BBComposer as Data URI">
 <!ENTITY canimage.toolbar.reset "Reset">
 <!ENTITY canimage.toolbar.reset.ttt "Get the initial image">
-<!ENTITY canimage.toolbar.zoomin "Zoom in">
-<!ENTITY canimage.toolbar.zoomin.ttt "Zoom image in">
-<!ENTITY canimage.toolbar.zoomout "Zoom out">
-<!ENTITY canimage.toolbar.zoomout.ttt "Zoom image out">
-<!ENTITY canimage.toolbar.rotateleft "Rotate left">
-<!ENTITY canimage.toolbar.rotateleft.ttt "Rotate image left">
-<!ENTITY canimage.toolbar.rotateright "Rotate right">
-<!ENTITY canimage.toolbar.rotateright.ttt "Rotate image right">
+<!ENTITY canimage.toolbar.zoomin "Vergrößern">
+<!ENTITY canimage.toolbar.zoomin.ttt "Bild vergrößern">
+<!ENTITY canimage.toolbar.zoomout "Verkleinern">
+<!ENTITY canimage.toolbar.zoomout.ttt "Bild verkleinern">
+<!ENTITY canimage.toolbar.rotateleft "&amp;#8631;">
+<!ENTITY canimage.toolbar.rotateleft.ttt "Bild im Uhrzeigersinn drehen">
+<!ENTITY canimage.toolbar.rotateright "&amp;#8630;">
+<!ENTITY canimage.toolbar.rotateright.ttt "Bild gegen Uhrzeigersinn drehen">
 <!ENTITY canimage.toolbar.horizontalflip "Horizontal flip">
 <!ENTITY canimage.toolbar.horizontalflip.ttt "Flip image horizontally">
 <!ENTITY canimage.toolbar.verticalflip "Vertical flip">
@@ -63,6 +63,6 @@
 <!ENTITY canimage.toolbar.inverse.ttt "Inverse color values">
 <!ENTITY canimage.toolbar.crop "Crop">
 <!ENTITY canimage.toolbar.crop.ttt "Choose a subzone for this image">
-<!ENTITY canimage.width "Width">
-<!ENTITY canimage.height "Height">
-<!ENTITY canimage.size "Size">
+<!ENTITY canimage.width "Breite">
+<!ENTITY canimage.height "Höhe">
+<!ENTITY canimage.size "Größe">

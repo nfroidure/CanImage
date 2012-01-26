@@ -1,22 +1,26 @@
 <!ENTITY canimage.title "CanImage : Yes, canvas can !">
-<!ENTITY canimage.toolbar.open "Ouvrir">
-<!ENTITY canimage.toolbar.open.ttt "Ouvrir">
-<!ENTITY canimage.toolbar.open.file "Fichier">
+<!ENTITY canimage.toolbar.file "Fichier">
+<!ENTITY canimage.toolbar.file.ttt "Parcourir vos fichiers">
+<!ENTITY canimage.toolbar.open.file "Ouvrir">
 <!ENTITY canimage.toolbar.open.file.ttt "Editer une image depuis un fichier">
+<!ENTITY canimage.toolbar.save "Enregistrer">
+<!ENTITY canimage.toolbar.save.ttt "Sauvegarder l'image">
+<!ENTITY canimage.toolbar.saveas "Enregistrer sous">
+<!ENTITY canimage.toolbar.saveas.ttt "Sauvegarder l'image sous">
+<!ENTITY canimage.toolbar.gocapture "Capturer">
+<!ENTITY canimage.toolbar.gocapture.ttt "Capturer des images">
+<!ENTITY canimage.toolbar.capture "Capture d'écran">
+<!ENTITY canimage.toolbar.capture.ttt "Prendre un cliché instantané">
+<!ENTITY canimage.toolbar.capture.window "Fenêtre">
+<!ENTITY canimage.toolbar.capture.window.ttt "Capturer la fenêtre de Firefox">
+<!ENTITY canimage.toolbar.capture.page "Page entière">
+<!ENTITY canimage.toolbar.capture.page.ttt "Capturer la page visualisée">
+<!ENTITY canimage.toolbar.capture.visible "Contenu visible de la page">
+<!ENTITY canimage.toolbar.capture.visible.ttt "Capturer le contenu visible de la page visualisée">
 <!ENTITY canimage.toolbar.open.clipboard "Presse-Papier">
 <!ENTITY canimage.toolbar.open.clipboard.ttt "Editer une image depuis le presse papier">
 <!ENTITY canimage.toolbar.open.page "Pages">
 <!ENTITY canimage.toolbar.open.page.ttt "Trouver une image dans les onglet ouverts">
-<!ENTITY canimage.toolbar.capture "Capturer">
-<!ENTITY canimage.toolbar.capture.ttt "Prendre un cliché instantané">
-<!ENTITY canimage.toolbar.capture.window "Fenêtre">
-<!ENTITY canimage.toolbar.capture.window.ttt "Capturer la fenêtre de Firefox">
-<!ENTITY canimage.toolbar.capture.page "Page">
-<!ENTITY canimage.toolbar.capture.page.ttt "Capturer la page visualisée">
-<!ENTITY canimage.toolbar.capture.visible "Contenu visible">
-<!ENTITY canimage.toolbar.capture.visible.ttt "Capturer le contenu visible de la page visualisée">
-<!ENTITY canimage.toolbar.save "Enregistrer">
-<!ENTITY canimage.toolbar.save.ttt "Sauvegarder l'image">
 <!ENTITY canimage.toolbar.insert "Insérer">
 <!ENTITY canimage.toolbar.insert.ttt "Insérer dans une page ouverte">
 <!ENTITY canimage.toolbar.insert.input "Champs fichier">
