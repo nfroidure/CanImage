@@ -9,7 +9,7 @@
 	<script type="application/x-javascript" src="chrome://canimage/content/browser-overlay.js"/>
 
 	<broadcasterset id="mainBroadcasterSet">
-		<broadcaster autoCheck="false" type="checkbox" group="sidebar" id="bbcomp-canimage-sidebar" label="&canimage.name;" tooltiptext="&canimage.ttt;" sidebarurl="chrome://canimage/content/canimage.xul" oncommand="toggleSidebar('bbcomp-canimage-sidebar');" />
+		<broadcaster autoCheck="true" type="checkbox" group="sidebar" id="bbcomp-canimage-sidebar" label="&canimage.name;" tooltiptext="&canimage.ttt;" sidebarurl="chrome://canimage/content/canimage.xul" oncommand="toggleSidebar('bbcomp-canimage-sidebar');" />
 	</broadcasterset>
 
 	<menupopup id="viewSidebarMenu">

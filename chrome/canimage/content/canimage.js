@@ -1,63 +1,81 @@
 //CanImageManager
 function CanImageUI()
 	{
-	window.addEventListener('load', this.newEventHandler(this,this.init), false);
-	window.addEventListener('unload', this.newEventHandler(this,this.unInit), false);
+	this.loadHandler=ewkLib.newEventHandler(this,this.load);
+	window.addEventListener('load', this.loadHandler, false);
+	this.unLoadHandler=ewkLib.newEventHandler(this,this.unLoad);
+	document.addEventListener('unload', this.unLoadHandler, false);
 	this._frozen=false;
 	this._fSelX=-1;
 	this._fSelY=-1;
-	this._eventHandlers=new Array();
 	};
-CanImageUI.prototype.init = function ()
+CanImageUI.prototype.load = function ()
 	{
-	if(window.parent.myBBComposerManager&&window.parent.myBBComposerManager.focusedBBComposer)
-		{
-		if(window.parent.myBBComposerManager.toggleSidebar('canimage', true))
-			window.parent.myBBComposerManager.canimageDisplay();
-		}
+	document.removeEventListener('load', this.loadHandler, false);
+	var evt = window.parent.document.createEvent('Events');
+	evt.initEvent('sidebarload', true, true);
+	evt.sidebarWindow=this;
+	evt.sidebarName='canimage';
+	evt.standAlone=true;
+	if(window.parent)
+		window.parent.dispatchEvent(evt);
 	this.canvas=document.getElementById('canImageCanvas');
 	// Getting locales
 	this.localeProperties = document.getElementById("canimage-properties");
 	// Buttons events
-	document.getElementById('canImageOpenFile').addEventListener('command', this.newEventHandler(this,this.openFromFile), false);
-	document.getElementById('canImageOpenWindow').addEventListener('command', this.newEventHandler(this,this.openFromWindow), false);
-	document.getElementById('canImageOpenPage').addEventListener('command', this.newEventHandler(this,this.openFromPage), false);
-	document.getElementById('canImageOpenVisible').addEventListener('command', this.newEventHandler(this,this.openFromVisible), false);
-	document.getElementById('canImageOpenClipboard').addEventListener('command', this.newEventHandler(this,this.openFromClipboard), false);
-	document.getElementById('canImageSave').addEventListener('command', this.newEventHandler(this,this.saveFile), false);
-	document.getElementById('canImageSaveAs').addEventListener('command', this.newEventHandler(this,this.saveAsFile), false);
-	document.getElementById('canImageClipboardBmp').addEventListener('command', this.newEventHandler(this,this.sendToClipboardBmp), false);
-	document.getElementById('canImageClipboardB64').addEventListener('command', this.newEventHandler(this,this.sendToClipboardB64), false);
-	document.getElementById('canImageBBComposer').addEventListener('command', this.newEventHandler(this,this.sendToBBComposer), false);
-	document.getElementById('canImageBBComposerB64').addEventListener('command', this.newEventHandler(this,this.sendToBBComposerB64), false);
-	document.getElementById('canImageReset').addEventListener('command', this.newEventHandler(this,this.reset), false);
+	document.getElementById('canImageOpenFile').addEventListener('command', ewkLib.newEventHandler(this,this.openFromFile), false);
+	document.getElementById('canImageOpenWindow').addEventListener('command', ewkLib.newEventHandler(this,this.openFromWindow), false);
+	document.getElementById('canImageOpenPage').addEventListener('command', ewkLib.newEventHandler(this,this.openFromPage), false);
+	document.getElementById('canImageOpenVisible').addEventListener('command', ewkLib.newEventHandler(this,this.openFromVisible), false);
+	document.getElementById('canImageOpenClipboard').addEventListener('command', ewkLib.newEventHandler(this,this.openFromClipboard), false);
+	document.getElementById('canImageSave').addEventListener('command', ewkLib.newEventHandler(this,this.saveFile), false);
+	document.getElementById('canImageSaveAs').addEventListener('command', ewkLib.newEventHandler(this,this.saveAsFile), false);
+	document.getElementById('canImageClipboardBmp').addEventListener('command', ewkLib.newEventHandler(this,this.sendToClipboardBmp), false);
+	document.getElementById('canImageClipboardB64').addEventListener('command', ewkLib.newEventHandler(this,this.sendToClipboardB64), false);
+	document.getElementById('canImageBBComposer').addEventListener('command', ewkLib.newEventHandler(this,this.sendToBBComposer), false);
+	document.getElementById('canImageBBComposerB64').addEventListener('command', ewkLib.newEventHandler(this,this.sendToBBComposerB64), false);
+	document.getElementById('canImageReset').addEventListener('command', ewkLib.newEventHandler(this,this.reset), false);
 	// Menupopups events
-	document.getElementById('canImagePagePopup').addEventListener('popupshowing', this.newEventHandler(this,this.displayImagesMenupopup), false);
-	document.getElementById('canImageInputPopup').addEventListener('popupshowing', this.newEventHandler(this,this.displayInputsMenupopup), false);
-	document.getElementById('canImageFieldPopup').addEventListener('popupshowing', this.newEventHandler(this,this.displayFieldsMenupopup), false);
+	document.getElementById('canImagePagePopup').addEventListener('popupshowing', ewkLib.newEventHandler(this,this.displayImagesMenupopup), false);
+	document.getElementById('canImageInputPopup').addEventListener('popupshowing', ewkLib.newEventHandler(this,this.displayInputsMenupopup), false);
+	document.getElementById('canImageFieldPopup').addEventListener('popupshowing', ewkLib.newEventHandler(this,this.displayFieldsMenupopup), false);
 	// Editor buttons events
-	document.getElementById('canImageZoomIn').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageZoomOut').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageRotateLeft').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageRotateRight').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageHorizontalFlip').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageVerticalFlip').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageLessBrightness').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageMoreBrightness').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageLessContrast').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageMoreContrast').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageInverseColors').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
-	document.getElementById('canImageCropZone').addEventListener('command', this.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageZoomIn').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageZoomOut').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageRotateLeft').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageRotateRight').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageHorizontalFlip').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageVerticalFlip').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageLessBrightness').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageMoreBrightness').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageLessContrast').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageMoreContrast').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageInverseColors').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageCropZone').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
 	// Temporary files
 	this.tempNum=0;
 	// Open selected image
 	if(window.parent.canImageSelType)
 		this.openFromContextMenu();
 	}
-CanImageUI.prototype.unInit = function ()
+CanImageUI.prototype.run = function (editorManager)
 	{
-	if(window.parent.myBBComposerManager)
-		window.parent.myBBComposerManager.sidebar=false;
+	this.editorManager=editorManager;
+	this.displayHandler=ewkLib.newEventHandler(this,this.display);
+	document.addEventListener('display', this.displayHandler, false);
+	}
+CanImageUI.prototype.display = function (hEvent)
+	{
+	var curElement = this.editorManager.focusedBBComposer.getSelectedElement();
+	if(curElement.nodeName.toLowerCase()=='img')
+		this.openImageEditor(curElement);
+	}
+CanImageUI.prototype.unLoad = function ()
+	{
+	window.clearTimeout(this.refreshInterval);
+	document.removeEventListener('unload', this.unLoadHandler, false);
+	if(this.editorManager)
+		this.editorManager.toggleSidebar('degradx',false);
 	}
 CanImageUI.prototype.update = function ()
 	{
@@ -89,8 +107,8 @@ CanImageUI.prototype.getSelection = function (callback)
 	this.frozen=true;
 	this.selectionCallback=callback;
 	document.getElementById('canImageStack').setAttribute('class','canImageFSelection');
-	document.getElementById('canImageStack').addEventListener('click',this.newEventHandler(this,this.handleSelection,'handleSelection'),false);
-	document.getElementById('canImageStack').addEventListener('mousemove',this.newEventHandler(this,this.followSelection,'followSelection'),false);
+	document.getElementById('canImageStack').addEventListener('click',ewkLib.newEventHandler(this,this.handleSelection,'handleSelection'),false);
+	document.getElementById('canImageStack').addEventListener('mousemove',ewkLib.newEventHandler(this,this.followSelection,'followSelection'),false);
 	}
 CanImageUI.prototype.followSelection = function (hEvent)
 	{
@@ -156,24 +174,11 @@ CanImageUI.prototype.handleSelection = function (hEvent)
 CanImageUI.prototype.endSelection = function (hEvent)
 	{
 	document.getElementById('canImageStack').removeAttribute('class');
-	document.getElementById('canImageStack').removeEventListener('mousemove',this.newEventHandler(this,this.followSelection,'followSelection'),false);
-	document.getElementById('canImageStack').removeEventListener('click',this.newEventHandler(this,this.handleSelection,'handleSelection'),false);
+	document.getElementById('canImageStack').removeEventListener('mousemove',ewkLib.newEventHandler(this,this.followSelection,'followSelection'),false);
+	document.getElementById('canImageStack').removeEventListener('click',ewkLib.newEventHandler(this,this.handleSelection,'handleSelection'),false);
 	this._fSelX=-1;
 	this._fSelY=-1;
 	this.frozen=false;
-	}
-CanImageUI.prototype.newEventHandler = function (obj, method, name)
-	{
-	var f;
-	if(name&&this._eventHandlers[name])
-		f=this._eventHandlers[name];
-	else
-		{
-		f=function () { return method.apply(obj, arguments); };
-		if(name)
-			this._eventHandlers[name]=f;
-		}
-	return f;
 	}
 CanImageUI.prototype.editorEventHandler = function (hEvent)
 	{
@@ -194,7 +199,7 @@ CanImageUI.prototype.openFromFile = function ()
 		{
 		var image = new Image();
 		image.src=file.getUri();
-		image.addEventListener('load', this.newEventHandler(this,this.imageHandler), false);
+		image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
 		this.currentFileUri=file.getUri();
 		}
 	}
@@ -225,7 +230,7 @@ CanImageUI.prototype.openFromDataUri = function (data)
 	{
 	this.currentFileUri='';
 	var image = new Image();
-	image.addEventListener('load', this.newEventHandler(this,this.imageHandler), false);
+	image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
 	image.src=data;
 	}
 CanImageUI.prototype.openFromWindow = function (data)
@@ -271,7 +276,7 @@ CanImageUI.prototype.openFromCapture = function (win,sel)
 		'rgb(255, 255, 255)'
 		);
 	var image = new Image();
-	image.addEventListener('load', this.newEventHandler(this,this.imageHandler), false);
+	image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
 	image.src=canvas.toDataURL('image/png', '');
 	}
 CanImageUI.prototype.openFromClipboard = function ()
@@ -305,7 +310,7 @@ CanImageUI.prototype.openFromClipboard = function ()
 			if(file.fromTempDirectory(this.tempNum+'canimage.jpg')||file.createUnique())
 				{
 				this.streamUri=file.getUri();
-				file.writeFromStream(str, this.newEventHandler(this,this.streamHandler));
+				file.writeFromStream(str, ewkLib.newEventHandler(this,this.streamHandler));
 				}
 			this.tempNum++;
 			}
@@ -316,7 +321,7 @@ CanImageUI.prototype.openFromClipboard = function ()
 			if(file.fromTempDirectory(this.tempNum+'canimage.jpg')||file.createUnique())
 				{
 				this.streamUri=file.getUri();
-				file.writeFromStream(str, this.newEventHandler(this,this.streamHandler));
+				file.writeFromStream(str, ewkLib.newEventHandler(this,this.streamHandler));
 				}
 			this.tempNum++;
 			}
@@ -327,7 +332,7 @@ CanImageUI.prototype.openFromClipboard = function ()
 			if(file.fromTempDirectory(this.tempNum+'canimage.jpg')||file.createUnique())
 				{
 				this.streamUri=file.getUri();
-				file.writeFromStream(str, this.newEventHandler(this,this.streamHandler));
+				file.writeFromStream(str, ewkLib.newEventHandler(this,this.streamHandler));
 				}
 			this.tempNum++;
 			}
@@ -345,7 +350,7 @@ CanImageUI.prototype.streamHandler= function (aRequest, aContext, aStatusCode)
 		{
 		var image = new Image();
 		image.src=this.streamUri;
-		image.addEventListener('load', this.newEventHandler(this,this.imageHandler), false);
+		image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
 		}
 	}
 CanImageUI.prototype.imageHandler = function (hEvent)
@@ -451,26 +456,17 @@ CanImageUI.prototype.sendToBBComposer = function (hEvent)
 	{
 	if(this.editor)
 		{
-		if(window.parent.myBBComposerManager)
+		if(this.editorManager)
 			{
-			if(window.parent.myBBComposerManager.focusedBBComposer)
+			if(this.editorManager.focusedBBComposer)
 				{
-				var curDocument=window.parent.getBrowser().contentDocument;
-				var image=curDocument.createElement('img');
-				image.addEventListener('load',function() {
-					var command='cmd_copyImageContents';
-					var controller=document.commandDispatcher.getControllerForCommand(command);
-					if(controller && controller.isCommandEnabled(command))
-						{
-						controller.doCommand(command);
-						window.parent.myBBComposerManager.focusedBBComposer.paste();
-						}
-					this.parentNode.removeChild(this);
-				},false);
-				curDocument.lastChild.lastChild.appendChild(image);
-				curDocument.popupNode=image;
-				document.popupNode=image;
-				image.src=this.canvas.toDataURL("image/png");
+				var file = new ewkFile();
+				if(file.fromTempDirectory(this.tempNum+'canimage.png'))
+					{
+					file.writeFromDataURL(this.canvas.toDataURL("image/png"));
+					this.editorManager.focusedBBComposer.insertContent(this.editorManager.focusedBBComposer.importFiles(new Array(new File(file.file))));
+					}
+				this.tempNum++;
 				}
 			else
 				alert(this.localeProperties.getString('extensions.canimage@elitwork.com.no_bbcomposer'));
@@ -485,10 +481,10 @@ CanImageUI.prototype.sendToBBComposerB64 = function (hEvent)
 	{
 	if(this.editor)
 		{
-		if(window.parent.myBBComposerManager)
+		if(this.editorManager)
 			{
-			if(window.parent.myBBComposerManager.focusedBBComposer)
-				window.parent.myBBComposerManager.focusedBBComposer.toggleCommand('img',{'src':this.canvas.toDataURL("image/png")});
+			if(this.editorManager.focusedBBComposer)
+				this.editorManager.focusedBBComposer.toggleCommand('img',{'src':this.canvas.toDataURL("image/png")});
 			else
 				alert(this.localeProperties.getString('extensions.canimage@elitwork.com.no_bbcomposer'));
 			}
@@ -527,7 +523,7 @@ CanImageUI.prototype.displayImagesMenupopup = function (hEvent)
 						{
 						var menuitem = document.createElement('menuitem');
 						menuitem.setAttribute('label','#'+j+(browser.contentDocument.images[j].hasAttribute('alt')?' '+browser.contentDocument.images[j].getAttribute('alt'):''));
-						menuitem.addEventListener('command', this.newEventHandler(this,this.openFromImage), false);
+						menuitem.addEventListener('command', ewkLib.newEventHandler(this,this.openFromImage), false);
 						menuitem.linkedImage=browser.contentDocument.images[j];
 						subMenupopup.appendChild(menuitem);
 						}
@@ -586,7 +582,7 @@ CanImageUI.prototype.displayInputsMenupopup = function (hEvent)
 								}
 							}
 						menuitem.setAttribute('label','#'+j+(label?' '+label:(keepedInputs[j].hasAttribute('name')?' '+keepedInputs[j].getAttribute('name'):'')));
-						menuitem.addEventListener('command', this.newEventHandler(this,this.sendToInput), false);
+						menuitem.addEventListener('command', ewkLib.newEventHandler(this,this.sendToInput), false);
 						menuitem.linkedInput=keepedInputs[j];
 						subMenupopup.appendChild(menuitem);
 						}
@@ -650,7 +646,7 @@ CanImageUI.prototype.displayFieldsMenupopup = function (hEvent)
 								}
 							}
 						menuitem.setAttribute('label','#'+j+(label?' '+label:(keepedInputs[j].hasAttribute('name')?' '+keepedInputs[j].getAttribute('name'):'')));
-						menuitem.addEventListener('command', this.newEventHandler(this,this.sendToField), false);
+						menuitem.addEventListener('command', ewkLib.newEventHandler(this,this.sendToField), false);
 						menuitem.linkedInput=keepedInputs[j];
 						subMenupopup.appendChild(menuitem);
 						}
@@ -858,7 +854,7 @@ CanImageEditor.prototype.cropZone = function (rect)
 	this.cropWidth=0;
 	this.cropHeight=0;
 	this.display();
-	this.ui.getSelection(this.ui.newEventHandler(this,this.handleCropZone));
+	this.ui.getSelection(ewkLib.newEventHandler(this,this.handleCropZone));
 	}
 CanImageEditor.prototype.handleCropZone = function (xFactor,yFactor,widthFactor,heightFactor)
 	{
