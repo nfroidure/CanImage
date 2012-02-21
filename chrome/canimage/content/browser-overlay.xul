@@ -24,10 +24,10 @@
 	</popup>
 
 	<toolbarpalette id="BrowserToolbarPalette">
-		<toolbarbutton id="canimage-toolbarbutton" class="toolbarbutton-1" label="&canimage.name;" tooltiptext="&canimage.ttt;" observes="bbcomp-canimage-sidebar"/>
+		<toolbarbutton id="canimage-toolbarbutton" class="toolbarbutton-1" label="&canimage.name;" tooltiptext="&canimage.ttt;" observes="canimage-sidebar"/>
 	</toolbarpalette>
 
 	<toolbar id="addon-bar">
-		<toolbarbutton id="canimage-addonbarbutton" class="toolbarbutton-1" label="&canimage.name;" tooltiptext="&canimage.ttt;" observes="bbcomp-canimage-sidebar"/>
+		<toolbarbutton id="canimage-addonbarbutton" class="toolbarbutton-1" label="&canimage.name;" tooltiptext="&canimage.ttt;" observes="canimage-sidebar"/>
 	</toolbar>
 </overlay>
