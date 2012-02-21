@@ -2,9 +2,9 @@
 
 <!DOCTYPE overlay SYSTEM "chrome://canimage/locale/canimage-overlay.dtd">
 
-<overlay id="bbcomposer-canimage"
+<overlay id="canimage-bbcomposer"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<menupopup id="bbcomposer-sidebar-button-mpopup">
-		<menuitem observes="bbcomp-canimage-sidebar" id="bbcomposer-canimage-sidebar-button" label="&canimage.name;" tooltiptext="&canimage.ttt;"/>
+		<menuitem observes="canimage-sidebar" id="canimage-sidebar-button" label="&canimage.name;" tooltiptext="&canimage.ttt;"/>
 	</menupopup>
 </overlay>

@@ -9,11 +9,11 @@
 	<script type="application/x-javascript" src="chrome://canimage/content/browser-overlay.js"/>
 
 	<broadcasterset id="mainBroadcasterSet">
-		<broadcaster autoCheck="true" type="checkbox" group="sidebar" id="bbcomp-canimage-sidebar" label="&canimage.name;" tooltiptext="&canimage.ttt;" sidebarurl="chrome://canimage/content/canimage.xul" oncommand="toggleSidebar('bbcomp-canimage-sidebar');" />
+		<broadcaster autoCheck="true" type="checkbox" group="sidebar" id="canimage-sidebar" label="&canimage.name;" tooltiptext="&canimage.ttt;" sidebarurl="chrome://canimage/content/canimage.xul" oncommand="toggleSidebar('canimage-sidebar');" />
 	</broadcasterset>
 
 	<menupopup id="viewSidebarMenu">
-		<menuitem observes="bbcomp-canimage-sidebar" id="bbcomp-canimage-menuitem"/>
+		<menuitem observes="canimage-sidebar" id="canimage-menuitem"/>
 	</menupopup>
 
 	<popup id="contentAreaContextMenu"

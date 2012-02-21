@@ -56,7 +56,7 @@ function canImageContextEdit(type)
 		}
 	else
 		{
-		toggleSidebar('bbcomp-canimage-sidebar', true);
+		toggleSidebar('canimage-sidebar', true);
 		}
 	}
 var canImageSelType;
