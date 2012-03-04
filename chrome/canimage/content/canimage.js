@@ -4,14 +4,14 @@ function CanImageUI()
 	this.loadHandler=ewkLib.newEventHandler(this,this.load);
 	window.addEventListener('load', this.loadHandler, false);
 	this.unLoadHandler=ewkLib.newEventHandler(this,this.unLoad);
-	document.addEventListener('unload', this.unLoadHandler, false);
+	window.addEventListener('unload', this.unLoadHandler, false);
 	this._frozen=false;
 	this._fSelX=-1;
 	this._fSelY=-1;
 	};
 CanImageUI.prototype.load = function ()
 	{
-	document.removeEventListener('load', this.loadHandler, false);
+	window.removeEventListener('load', this.loadHandler, false);
 	var evt = window.parent.document.createEvent('Events');
 	evt.initEvent('sidebarload', true, true);
 	evt.sidebarWindow=this;
@@ -73,7 +73,7 @@ CanImageUI.prototype.display = function (hEvent)
 CanImageUI.prototype.unLoad = function ()
 	{
 	window.clearTimeout(this.refreshInterval);
-	document.removeEventListener('unload', this.unLoadHandler, false);
+	window.removeEventListener('unload', this.unLoadHandler, false);
 	if(this.editorManager)
 		this.editorManager.toggleSidebar('canimage',false);
 	}
