@@ -75,7 +75,7 @@ CanImageUI.prototype.unLoad = function ()
 	window.clearTimeout(this.refreshInterval);
 	document.removeEventListener('unload', this.unLoadHandler, false);
 	if(this.editorManager)
-		this.editorManager.toggleSidebar('degradx',false);
+		this.editorManager.toggleSidebar('canimage',false);
 	}
 CanImageUI.prototype.update = function ()
 	{
