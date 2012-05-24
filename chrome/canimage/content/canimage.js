@@ -373,7 +373,7 @@ CanImageUI.prototype.saveAsFile = function ()
 	if(this.editor)
 		{
 		var file = new ewkFile();
-		if(file.fromUserCreation(this.localeProperties.getString('extensions.canimage@elitwork.com.save'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):''),'*.png',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
+		if(file.fromUserCreation(this.localeProperties.getString('extensions.canimage@elitwork.com.save'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):'image.png'),'*.png',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
 			file.writeFromDataURL(this.canvas.toDataURL("image/png"));
 		}
 	else
