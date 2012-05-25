@@ -258,8 +258,8 @@ CanImageUI.prototype.openFromVisible = function ()
 	this.openFromCapture(window.parent.getBrowser().contentWindow,{
 		'top': window.parent.getBrowser().contentWindow.scrollY,
 		'left': window.parent.getBrowser().contentWindow.scrollX,
-		'width': window.parent.getBrowser().contentWindow.outerWidth,
-		'height': window.parent.getBrowser().contentWindow.outerHeight,
+		'width': window.parent.getBrowser().contentWindow.innerWidth,
+		'height': window.parent.getBrowser().contentWindow.innerHeight,
 		});
 	}
 CanImageUI.prototype.openFromCapture = function (win,sel)
