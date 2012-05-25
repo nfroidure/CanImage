@@ -198,8 +198,8 @@ CanImageUI.prototype.openFromFile = function ()
 	if(file.fromUserSelection(this.localeProperties.getString('extensions.canimage@elitwork.com.open'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):''),'*.png; *.jpg; *.jpeg; *.gif; *.bmp',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
 		{
 		var image = new Image();
-		image.src=file.getUri();
 		image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
+		image.src=file.getUri();
 		this.currentFileUri=file.getUri();
 		}
 	}
@@ -214,7 +214,9 @@ CanImageUI.prototype.openFromContextMenu = function ()
 		}
 	else if(selection.nodeName.toLowerCase()=='img')
 		{
-		this.openImageEditor(selection);
+		var image = new Image();
+		image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
+		image.src=selection.src;
 		}
 	else if(selection.nodeName.toLowerCase()=='canvas')
 		{
@@ -710,7 +712,6 @@ CanImageEditor.prototype.display = function ()
 	switch(this.degree)
 		{
 		case 0 :
-			//alert(this.ui.canvas.width+' '+this.ui.canvas.height+' '+this.cropX+', '+this.cropY+', '+(this.cropWidth?this.cropWidth:this.image.width)+', '+(this.cropHeight?this.cropHeight:this.image.height)+', 0, 0, '+((this.cropWidth?this.cropWidth:this.image.width)*this.scale)+', '+((this.cropHeight?this.cropHeight:this.image.height)*this.scale));
 			this.context.drawImage(this.image, this.cropX, this.cropY, (this.cropWidth?this.cropWidth:this.image.width), (this.cropHeight?this.cropHeight:this.image.height), 0, 0, (this.cropWidth?this.cropWidth:this.image.width)*this.scale, (this.cropHeight?this.cropHeight:this.image.height)*this.scale);
 			break;
 		case 90 :
