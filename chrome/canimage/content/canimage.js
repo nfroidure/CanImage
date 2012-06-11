@@ -675,6 +675,7 @@ function CanImageEditor(image,ui)
 	{
 	this.image=image;
 	this.ui=ui;
+	this.ui.editor=this;
 	this.context=this.ui.canvas.getContext('2d');
 	this.scale=1;
 	this.brightness=1;
