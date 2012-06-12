@@ -43,6 +43,9 @@ window { min-width:300px; }
 #canImageCropZone {
 	list-style-image: url("chrome://canimage/skin/cut.png");
 }
+#canImageAddMarker {
+	list-style-image: url("chrome://canimage/skin/marker.png");
+}
 /* Crop selectors */
 #canImageWrapper { overflow:hidden; }
 #canImageContainer { overflow:auto; }

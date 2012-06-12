@@ -76,6 +76,7 @@
 			<toolbarbutton id="canImageMoreContrast" label="&canimage.toolbar.morecontrast;" tooltiptext="&canimage.toolbar.morecontrast.ttt;"></toolbarbutton>
 			<toolbarbutton id="canImageInverseColors" type="checkbox" autocheck="false" checked="false" label="&canimage.toolbar.inverse;" tooltiptext="&canimage.toolbar.inverse.ttt;"></toolbarbutton>
 			<toolbarbutton id="canImageCropZone" label="&canimage.toolbar.crop;" tooltiptext="&canimage.toolbar.crop.ttt;"></toolbarbutton>
+			<toolbarbutton id="canImageAddMarker" label="&canimage.toolbar.mark;" tooltiptext="&canimage.toolbar.mark.ttt;"></toolbarbutton>
 		</toolbar>
 		<vbox flex="1" id="canImageWrapper">
 			<vbox flex="1" id="canImageContainer">

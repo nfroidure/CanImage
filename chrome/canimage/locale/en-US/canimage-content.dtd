@@ -63,6 +63,8 @@
 <!ENTITY canimage.toolbar.inverse.ttt "Inverse color values">
 <!ENTITY canimage.toolbar.crop "Crop">
 <!ENTITY canimage.toolbar.crop.ttt "Choose a subzone for this image">
+<!ENTITY canimage.toolbar.mark "Mark">
+<!ENTITY canimage.toolbar.mark.ttt "Add a marker">
 <!ENTITY canimage.width "Width">
 <!ENTITY canimage.height "Height">
 <!ENTITY canimage.size "Size">

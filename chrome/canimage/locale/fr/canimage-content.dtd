@@ -63,6 +63,8 @@
 <!ENTITY canimage.toolbar.inverse.ttt "Inverse color values">
 <!ENTITY canimage.toolbar.crop "Découper">
 <!ENTITY canimage.toolbar.crop.ttt "Découper une zone de l'image">
+<!ENTITY canimage.toolbar.mark "Marquer">
+<!ENTITY canimage.toolbar.mark.ttt "Ajouter un marqueur">
 <!ENTITY canimage.width "Largeur">
 <!ENTITY canimage.height "Hauteur">
 <!ENTITY canimage.size "Taille">

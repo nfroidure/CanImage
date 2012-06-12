@@ -52,6 +52,7 @@ CanImageUI.prototype.load = function ()
 	document.getElementById('canImageMoreContrast').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
 	document.getElementById('canImageInverseColors').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
 	document.getElementById('canImageCropZone').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
+	document.getElementById('canImageAddMarker').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
 	// Temporary files
 	this.tempNum=0;
 	// Open selected image
@@ -102,6 +103,30 @@ CanImageUI.prototype.__defineGetter__("frozen", function()
 	{
 	return this._frozen;
 	});
+CanImageUI.prototype.getPoint = function (callback)
+	{
+	this.frozen=true;
+	this.selectionCallback=callback;
+	document.getElementById('canImageStack').addEventListener('click',ewkLib.newEventHandler(this,this.handlePoint,'handlePoint'),false);
+	}
+CanImageUI.prototype.handlePoint = function (hEvent)
+	{
+	if(hEvent.button==2)
+		{
+		this.endPointSelection(hEvent);
+		}
+	else
+		{
+		this.selectionCallback(hEvent.clientX+document.getElementById('canImageContainer').scrollLeft-document.getElementById('canImageCanvas').offsetLeft,
+			hEvent.clientY+document.getElementById('canImageContainer').scrollTop-document.getElementById('canImageCanvas').offsetTop);
+		this.endPointSelection(hEvent);
+		}
+	}
+CanImageUI.prototype.endPointSelection = function (hEvent)
+	{
+	document.getElementById('canImageStack').removeEventListener('click',ewkLib.newEventHandler(this,this.handlePoint,'handlePoint'),false);
+	this.frozen=false;
+	}
 CanImageUI.prototype.getSelection = function (callback)
 	{
 	this.frozen=true;
@@ -688,6 +713,7 @@ function CanImageEditor(image,ui)
 	this.cropY=0;
 	this.cropWidth=0;
 	this.cropHeight=0;
+	this.markers=new Array();
 	this.display();
 	};
 CanImageEditor.prototype.display = function ()
@@ -726,6 +752,11 @@ CanImageEditor.prototype.display = function ()
 			this.context.translate(-this.image.width*this.scale, 0);
 			this.context.drawImage(this.image, this.cropX, this.cropY, (this.cropWidth?this.cropWidth:this.image.width), (this.cropHeight?this.cropHeight:this.image.height), 0, 0, (this.cropWidth?this.cropWidth:this.image.width)*this.scale, (this.cropHeight?this.cropHeight:this.image.height)*this.scale);
 			break;
+		}
+	for(var i=this.markers.length-1; i>=0; i--)
+		{
+		this.context.fillRect(this.markers[i].x-5, this.markers[i].y-1, 10, 2); 
+		this.context.fillRect(this.markers[i].x-1, this.markers[i].y-5, 2, 10); 
 		}
 	if(this.brightness!=1||this.contrast!=1||this.inverse)
 		{
@@ -863,6 +894,16 @@ CanImageEditor.prototype.handleCropZone = function (xFactor,yFactor,widthFactor,
 	this.cropY=(this.ui.canvas.height/this.scale)*yFactor;
 	this.cropWidth=(this.ui.canvas.width/this.scale)*widthFactor;
 	this.cropHeight=(this.ui.canvas.height/this.scale)*heightFactor;
+	this.display();
+	}
+CanImageEditor.prototype.addMarker = function (rect)
+	{
+	this.display();
+	this.ui.getPoint(ewkLib.newEventHandler(this,this.handleAddMarker));
+	}
+CanImageEditor.prototype.handleAddMarker = function (x,y)
+	{
+	this.markers.push({'x':x,'y':y});
 	this.display();
 	}
 
