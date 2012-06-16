@@ -223,8 +223,8 @@ CanImageUI.prototype.openFromFile = function ()
 	if(file.fromUserSelection(this.localeProperties.getString('extensions.canimage@elitwork.com.open'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):''),'*.png; *.jpg; *.jpeg; *.gif; *.bmp',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
 		{
 		var image = new Image();
-		image.src=file.getUri();
 		image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
+		image.src=file.getUri();
 		this.currentFileUri=file.getUri();
 		}
 	}
@@ -239,7 +239,9 @@ CanImageUI.prototype.openFromContextMenu = function ()
 		}
 	else if(selection.nodeName.toLowerCase()=='img')
 		{
-		this.openImageEditor(selection);
+		var image = new Image();
+		image.addEventListener('load', ewkLib.newEventHandler(this,this.imageHandler), false);
+		image.src=selection.src;
 		}
 	else if(selection.nodeName.toLowerCase()=='canvas')
 		{
@@ -281,8 +283,8 @@ CanImageUI.prototype.openFromVisible = function ()
 	this.openFromCapture(window.parent.getBrowser().contentWindow,{
 		'top': window.parent.getBrowser().contentWindow.scrollY,
 		'left': window.parent.getBrowser().contentWindow.scrollX,
-		'width': window.parent.getBrowser().contentWindow.outerWidth,
-		'height': window.parent.getBrowser().contentWindow.outerHeight,
+		'width': window.parent.getBrowser().contentWindow.innerWidth,
+		'height': window.parent.getBrowser().contentWindow.innerHeight,
 		});
 	}
 CanImageUI.prototype.openFromCapture = function (win,sel)
@@ -398,7 +400,7 @@ CanImageUI.prototype.saveAsFile = function ()
 	if(this.editor)
 		{
 		var file = new ewkFile();
-		if(file.fromUserCreation(this.localeProperties.getString('extensions.canimage@elitwork.com.save'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):''),'*.png',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
+		if(file.fromUserCreation(this.localeProperties.getString('extensions.canimage@elitwork.com.save'),(this.currentFileUri?this.currentFileUri.replace(/(.+)\/(?:[^\/]+)/,'$1/'):''),(this.currentFileUri?this.currentFileUri.replace(/(?:.+)\/([^\/]+)/,'$1'):'image.png'),'*.png',this.localeProperties.getString('extensions.canimage@elitwork.com.file_filter')))
 			file.writeFromDataURL(this.canvas.toDataURL("image/png"));
 		}
 	else
@@ -737,7 +739,6 @@ CanImageEditor.prototype.display = function ()
 	switch(this.degree)
 		{
 		case 0 :
-			//alert(this.ui.canvas.width+' '+this.ui.canvas.height+' '+this.cropX+', '+this.cropY+', '+(this.cropWidth?this.cropWidth:this.image.width)+', '+(this.cropHeight?this.cropHeight:this.image.height)+', 0, 0, '+((this.cropWidth?this.cropWidth:this.image.width)*this.scale)+', '+((this.cropHeight?this.cropHeight:this.image.height)*this.scale));
 			this.context.drawImage(this.image, this.cropX, this.cropY, (this.cropWidth?this.cropWidth:this.image.width), (this.cropHeight?this.cropHeight:this.image.height), 0, 0, (this.cropWidth?this.cropWidth:this.image.width)*this.scale, (this.cropHeight?this.cropHeight:this.image.height)*this.scale);
 			break;
 		case 90 :
