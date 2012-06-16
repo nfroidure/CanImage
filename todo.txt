@@ -1,5 +1,3 @@
 TO DO
-- add a marker to the image (arrow ?)
 - add custom circles to point out some parts of the image
 - add text to the image
--bug : ewkHanlder doesn't allow to unregister events.
