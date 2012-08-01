@@ -7,7 +7,7 @@ var ewkLib=
 		var index=ewkLib.eventHandlerMethods.indexOf(method);
 		if(index===-1)
 			{
-			var fx=function () { return method.apply(obj, arguments); }
+			var fx=function () {	return method.apply(obj, arguments); }
 			ewkLib.eventHandlerMethods.push(method);
 			ewkLib.eventHandlers.push(fx);
 			index=ewkLib.eventHandlerMethods.length-1;

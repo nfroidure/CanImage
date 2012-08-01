@@ -1,25 +1,15 @@
 //CanImageManager
 function CanImageUI()
 	{
-	this.loadHandler=ewkLib.newEventHandler(this,this.load);
-	window.addEventListener('load', this.loadHandler, false);
-	this.unLoadHandler=ewkLib.newEventHandler(this,this.unLoad);
-	window.addEventListener('unload', this.unLoadHandler, false);
+	window.addEventListener('load', ewkLib.newEventHandler(this,this.load), false);
+	window.addEventListener('unload', ewkLib.newEventHandler(this,this.unLoad), false);
 	this._frozen=false;
 	this._fSelX=-1;
 	this._fSelY=-1;
 	};
 CanImageUI.prototype.load = function ()
 	{
-	window.removeEventListener('load', this.loadHandler, false);
-	var evt = window.parent.document.createEvent('Events');
-	evt.initEvent('sidebarload', true, true);
-	evt.sidebarWindow=this;
-	evt.sidebarName='canimage';
-	evt.standAlone=true;
-	if(window.parent)
-		window.parent.dispatchEvent(evt);
-	this.canvas=document.getElementById('canImageCanvas');
+	window.removeEventListener('load', ewkLib.newEventHandler(this,this.load), false);
 	// Getting locales
 	this.localeProperties = document.getElementById("canimage-properties");
 	// Buttons events
@@ -55,6 +45,15 @@ CanImageUI.prototype.load = function ()
 	document.getElementById('canImageAddMarker').addEventListener('command', ewkLib.newEventHandler(this,this.editorEventHandler), false);
 	// Temporary files
 	this.tempNum=0;
+	// Firing sidebarload event
+	var evt = window.parent.document.createEvent('Events');
+	evt.initEvent('sidebarload', true, true);
+	evt.sidebarWindow=this;
+	evt.sidebarName='canimage';
+	evt.standAlone=true;
+	if(window.parent)
+		window.parent.dispatchEvent(evt);
+	this.canvas=document.getElementById('canImageCanvas');
 	// Open selected image
 	if(window.parent.canImageSelType)
 		this.openFromContextMenu();
@@ -74,9 +73,14 @@ CanImageUI.prototype.display = function (hEvent)
 CanImageUI.prototype.unLoad = function ()
 	{
 	window.clearTimeout(this.refreshInterval);
-	window.removeEventListener('unload', this.unLoadHandler, false);
-	if(this.editorManager)
-		this.editorManager.toggleSidebar('canimage',false);
+	window.removeEventListener('unload', ewkLib.newEventHandler(this,this.unLoad), false);
+	var evt = window.parent.document.createEvent('Events');
+	evt.initEvent('sidebarunload', true, true);
+	evt.sidebarWindow=this;
+	evt.sidebarName='canimage';
+	evt.standAlone=true;
+	if(window.parent)
+		window.parent.dispatchEvent(evt);
 	}
 CanImageUI.prototype.update = function ()
 	{
